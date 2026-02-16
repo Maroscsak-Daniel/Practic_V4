@@ -1,10 +1,12 @@
 package app;
 
 import model.*;
+import service.UniService;
 import util.JsonUtil;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,11 +24,40 @@ public class Main {
                 JsonUtil.readList(Path.of("C:\\FMI Facultate shit\\UBB FMI Anul II\\Semestrul I\\Pregatire Examen MAP\\Modele\\V4_UNI\\data\\events.json"),
                         SecurityEvent.class);
 
+        // Create service
+        UniService service = new UniService(students, actions, events);
+
+
+        //Task 1: Load data + display student data
+        System.out.println("Task 1: Load data + display student data");
         System.out.println("Students loaded: " + students.size());
         System.out.println("Actions loaded: " + actions.size());
         System.out.println("Events loaded: " + events.size());
-        for (Student s : students) {
+        for (Student student : students) {
+            System.out.println(student);
+        }
+        System.out.println("Task 2 completed\n");
+
+
+        //Task 2: Filter students by faculty and status
+        System.out.println("Task 2: Filter students by faculty and status");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter faculty: ");
+        String facultyInput = scanner.nextLine().trim();
+
+        System.out.print("Enter status (ACTIVE or SUSPENDED): ");
+        String statusInput = scanner.nextLine().trim().toUpperCase();
+
+        StudentStatus status = StudentStatus.valueOf(statusInput);
+
+        List<Student> matched = service.filterStudentsByFacultyAndStatus(facultyInput, status);
+
+        System.out.println("\nStudents matching faculty='" + facultyInput + "' and status='" + status + "':");
+        for (Student s : matched) {
             System.out.println(s);
         }
+        System.out.println("Task 2 completed\n");
+
+
     }
 }
