@@ -8,6 +8,10 @@ import model.StudentStatus;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.charset.StandardCharsets;
+import java.io.IOException;
 
 public class UniService {
     private final List<Student> students;
@@ -52,6 +56,19 @@ public class UniService {
                 .thenComparing(Comparator.comparingInt(Student::getYearLevel).reversed())
         );
         return sorted;
+    }
+
+    // Task 4 (simple): Save provided students list to a file (no sorting here)
+    public void writeStudents(Path out,
+                              List<Student> list) {
+        try {
+            Files.write(out,
+                    list.stream()
+                            .map(Student::toString)
+                            .toList());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

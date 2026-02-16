@@ -26,4 +26,13 @@ public class SecurityEvent {
     public int getBuldingCode() {
         return buldingCode;
     }
+
+    public int securitySore() {
+        return switch (type) {
+            case LATE_ENTRY -> severity;
+            case UNAUTHORIZED_ACCESS -> severity * 4;
+            case PROPERTY_DAMAGE -> severity * 6;
+            case FIRE_ALARM_TRIGGER -> severity * 3;
+        };
+    }
 }

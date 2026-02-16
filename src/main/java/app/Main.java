@@ -4,12 +4,13 @@ import model.*;
 import service.UniService;
 import util.JsonUtil;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("===== Smart City Traffic Control =====\n");
 
         List<Student> students =
@@ -67,6 +68,11 @@ public class Main {
         }
         System.out.println("Task 3 completed\n");
 
-
+        // Task 4: Save sorted students to file (no try/catch)
+        System.out.println("Task 4: Write sorted file");
+        service.writeStudents(
+                Path.of("students_sorted.txt"),
+                sorted);
+        System.out.println("Task 4 completed\n");
     }
 }
