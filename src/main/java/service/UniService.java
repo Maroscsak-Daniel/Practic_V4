@@ -12,6 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.charset.StandardCharsets;
 import java.io.IOException;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class UniService {
     private final List<Student> students;
@@ -70,5 +72,54 @@ public class UniService {
             throw new RuntimeException(e);
         }
     }
+
+    // Task 5
+    public List<String> firstNComputedSeverityScore(int n) {
+        return events.stream()
+                .limit(n)
+                .map(ev -> "Event " + ev.getId() + " -> rawPoints=" + ev.getSeverity()
+                        + " -> computedPoints=" + ev.securitySore())
+                .toList();
+    }
+
+    // Task 6
+    public List<RankRow> ranking() {
+
+        Map<Integer, Integer> riskSum =
+                events.stream()
+                        .collect(Collectors.groupingBy(
+                                SecurityEvent::getStudentId,
+                                Collectors.summingInt(
+                                        SecurityEvent::securitySore)));
+
+        Map<Integer, Integer> fineSum =
+                actions.stream()
+                        .collect(Collectors.groupingBy(
+                                DisciplinaryAction::getStudentId,
+                                Collectors.summingInt(
+                                        DisciplinaryAction::getPenaltyPoints)));
+
+        List<RankRow> rows = new ArrayList<>();
+
+        for (Student s : students) {
+            int risk = riskSum.getOrDefault(s.getId(), 0);
+            int fine = fineSum.getOrDefault(s.getId(), 0);
+
+            rows.add(new RankRow(
+                    s.getName(),
+                    risk - fine
+            ));
+        }
+
+        rows.sort(Comparator
+                .comparingInt(RankRow::totalRisk)
+                .thenComparing(
+                        Comparator.comparing(RankRow::name)
+                                .reversed()));
+
+        return rows;
+    }
+    public record RankRow(String name,
+                          int totalRisk) {}
 
 }

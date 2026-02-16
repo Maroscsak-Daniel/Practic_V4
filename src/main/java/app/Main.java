@@ -68,11 +68,33 @@ public class Main {
         }
         System.out.println("Task 3 completed\n");
 
+
         // Task 4: Save sorted students to file (no try/catch)
         System.out.println("Task 4: Write sorted file");
         service.writeStudents(
                 Path.of("students_sorted.txt"),
                 sorted);
         System.out.println("Task 4 completed\n");
+
+
+        // Task 5: Compute severity score for each student and return first N lines of output
+        System.out.println("Task 5: Points calculation: ");
+        for (String line : service.firstNComputedSeverityScore(5)) {
+            System.out.println(line);
+        }
+        System.out.println("Task 5 completed.\n");
+
+        // TASK 6
+        System.out.println("Task 6: Ranking");
+        var ranking = service.ranking();
+
+        System.out.println("Top 5 Vehicles:");
+        for (int i = 0; i < 5; i++) {
+            var r = ranking.get(i);
+            System.out.println((i + 1) + ". "
+                    + r.name()
+                    + " -> "
+                    + r.totalRisk());
+        }
     }
 }
