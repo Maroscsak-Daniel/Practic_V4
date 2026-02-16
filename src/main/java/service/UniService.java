@@ -7,6 +7,7 @@ import model.StudentStatus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Comparator;
 
 public class UniService {
     private final List<Student> students;
@@ -40,6 +41,17 @@ public class UniService {
         }
 
         return result;
+    }
+
+    // Task 3: Sort students by faculty ascending (case-insensitive)
+    // and for equal faculty sort by yearLevel descending
+    public List<Student> sortStudentsByFacultyAscThenYearLevelDesc() {
+        List<Student> sorted = new ArrayList<>(students);
+        sorted.sort(Comparator
+                .comparing((Student s) -> s.getFaculty() == null ? "" : s.getFaculty(), String.CASE_INSENSITIVE_ORDER)
+                .thenComparing(Comparator.comparingInt(Student::getYearLevel).reversed())
+        );
+        return sorted;
     }
 
 }

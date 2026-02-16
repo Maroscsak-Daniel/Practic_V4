@@ -38,25 +38,34 @@ public class Main {
         }
         System.out.println("Task 2 completed\n");
 
+//
+//        //Task 2: Filter students by faculty and status
+//        System.out.println("Task 2: Filter students by faculty and status");
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Enter faculty: ");
+//        String facultyInput = scanner.nextLine().trim();
+//
+//        System.out.print("Enter status (ACTIVE or SUSPENDED): ");
+//        String statusInput = scanner.nextLine().trim().toUpperCase();
+//
+//        StudentStatus status = StudentStatus.valueOf(statusInput);
+//
+//        List<Student> matched = service.filterStudentsByFacultyAndStatus(facultyInput, status);
+//
+//        System.out.println("\nStudents matching faculty='" + facultyInput + "' and status='" + status + "':");
+//        for (Student s : matched) {
+//            System.out.println(s);
+//        }
+//        System.out.println("Task 2 completed\n");
 
-        //Task 2: Filter students by faculty and status
-        System.out.println("Task 2: Filter students by faculty and status");
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter faculty: ");
-        String facultyInput = scanner.nextLine().trim();
 
-        System.out.print("Enter status (ACTIVE or SUSPENDED): ");
-        String statusInput = scanner.nextLine().trim().toUpperCase();
-
-        StudentStatus status = StudentStatus.valueOf(statusInput);
-
-        List<Student> matched = service.filterStudentsByFacultyAndStatus(facultyInput, status);
-
-        System.out.println("\nStudents matching faculty='" + facultyInput + "' and status='" + status + "':");
-        for (Student s : matched) {
+        // Task 3: Sort students by faculty asc then yearLevel desc
+        System.out.println("Task 3: Sort students by faculty asc then yearLevel desc");
+        List<Student> sorted = service.sortStudentsByFacultyAscThenYearLevelDesc();
+        for (Student s : sorted) {
             System.out.println(s);
         }
-        System.out.println("Task 2 completed\n");
+        System.out.println("Task 3 completed\n");
 
 
     }
