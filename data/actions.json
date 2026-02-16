@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "studentId": 1,
+        "reason": "UNAUTHORIZED_ACCESS",
+        "penaltyPoints": 5,
+        "buildingCode": 101
+    },
+    {
+        "id": 2,
+        "studentId": 5,
+        "reason": "PROPERTY_DAMAGE",
+        "penaltyPoints": 8,
+        "buildingCode": 103
+    },
+    {
+        "id": 3,
+        "studentId": 4,
+        "reason": "UNAUTHORIZED_ACCESS",
+        "penaltyPoints": 6,
+        "buildingCode": 105
+    },
+    {
+        "id": 4,
+        "studentId": 8,
+        "reason": "OTHER",
+        "penaltyPoints": 4,
+        "buildingCode": 107
+    }
+]

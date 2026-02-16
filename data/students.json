@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Anna Mcfiller",
+        "faculty": "Engineering",
+        "status": "ACTIVE",
+        "yearLevel": 2
+    },
+    {
+        "id": 2,
+        "name": "Lukas Weber",
+        "faculty": "Medicine",
+        "status": "ACTIVE",
+        "yearLevel": 3
+    },
+    {
+        "id": 3,
+        "name": "Sophie Klein",
+        "faculty": "Engineering",
+        "status": "SUSPENDED",
+        "yearLevel": 1
+    },
+    {
+        "id": 4,
+        "name": "David Schmidt",
+        "faculty": "Law",
+        "status": "ACTIVE",
+        "yearLevel": 4
+    },
+    {
+        "id": 5,
+        "name": "Emma Fischer",
+        "faculty": "Engineering",
+        "status": "ACTIVE",
+        "yearLevel": 3
+    },
+    {
+        "id": 6,
+        "name": "Jonas Wagner",
+        "faculty": "Medicine",
+        "status": "ACTIVE",
+        "yearLevel": 2
+    },
+    {
+        "id": 7,
+        "name": "Mia Becker",
+        "faculty": "Law",
+        "status": "SUSPENDED",
+        "yearLevel": 2
+    },
+    {
+        "id": 8,
+        "name": "Leon Hoffmann",
+        "faculty": "Engineering",
+        "status": "ACTIVE",
+        "yearLevel": 1
+    }
+]

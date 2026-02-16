@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "studentId": 1,
+        "type": "UNAUTHORIZED_ACCESS",
+        "severity": 3,
+        "buildingCode": 101
+    },
+    {
+        "id": 2,
+        "studentId": 2,
+        "type": "LATE_ENTRY",
+        "severity": 2,
+        "buildingCode": 102
+    },
+    {
+        "id": 3,
+        "studentId": 5,
+        "type": "PROPERTY_DAMAGE",
+        "severity": 2,
+        "buildingCode": 103
+    },
+    {
+        "id": 4,
+        "studentId": 1,
+        "type": "FIRE_ALARM_TRIGGER",
+        "severity": 1,
+        "buildingCode": 104
+    },
+    {
+        "id": 5,
+        "studentId": 4,
+        "type": "UNAUTHORIZED_ACCESS",
+        "severity": 4,
+        "buildingCode": 105
+    },
+    {
+        "id": 6,
+        "studentId": 6,
+        "type": "LATE_ENTRY",
+        "severity": 1,
+        "buildingCode": 106
+    },
+    {
+        "id": 7,
+        "studentId": 8,
+        "type": "PROPERTY_DAMAGE",
+        "severity": 3,
+        "buildingCode": 107
+    },
+    {
+        "id": 8,
+        "studentId": 2,
+        "type": "FIRE_ALARM_TRIGGER",
+        "severity": 2,
+        "buildingCode": 108
+    }
+]
